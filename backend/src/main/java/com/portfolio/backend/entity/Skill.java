@@ -1,7 +1,12 @@
 package com.portfolio.backend.entity;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
@@ -16,6 +21,10 @@ public class Skill {
     private String level;
     private int percentage;
 
+@ManyToMany(mappedBy = "skills")
+    @JsonIgnore   // infinite loop avoid
+    private List<Project> projects;
+    
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

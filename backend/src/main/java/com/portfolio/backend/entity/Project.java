@@ -1,10 +1,14 @@
 package com.portfolio.backend.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -19,9 +23,25 @@ public class Project {
  
  @ManyToOne
  @JoinColumn(name ="client_id")
- 
  private Client client;
 
+ @ManyToMany
+ @JoinTable(
+	name = "project_skill",
+	joinColumns = @JoinColumn(name ="project_id"),
+	inverseJoinColumns = @JoinColumn(name ="skill_id")
+ )
+ private List<Skill> skills;
+
+
+ public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+	
  public Long getId() {
 	return id;
  }
