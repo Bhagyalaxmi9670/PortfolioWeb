@@ -12,7 +12,9 @@ import com.portfolio.backend.service.ClientService;
 
 @RestController
 @RequestMapping("/api/clients")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200",
+	                    "http://localhost:3000" 
+})
 public class ClientController {
 
 	private final ClientService service;

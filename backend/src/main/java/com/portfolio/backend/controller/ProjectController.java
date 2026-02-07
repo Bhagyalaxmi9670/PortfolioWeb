@@ -9,7 +9,9 @@ import com.portfolio.backend.service.ProjectService;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200",
+	                    "http://localhost:3000" 
+})
 
 
 public class ProjectController {
