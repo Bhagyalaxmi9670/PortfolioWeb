@@ -2,6 +2,8 @@ package com.portfolio.backend.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,6 +25,7 @@ public class Project {
  
  @ManyToOne
  @JoinColumn(name ="client_id")
+ @JsonIgnore
  private Client client;
 
  @ManyToMany
@@ -31,6 +34,8 @@ public class Project {
 	joinColumns = @JoinColumn(name ="project_id"),
 	inverseJoinColumns = @JoinColumn(name ="skill_id")
  )
+ @JsonIgnore
+
  private List<Skill> skills;
 
 
