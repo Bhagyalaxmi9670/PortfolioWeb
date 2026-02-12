@@ -7,7 +7,7 @@ import com.portfolio.backend.service.UISettingsService;
 
 @RestController
 @RequestMapping("/api/ui-settings")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 public class UISettingsController {
 
     private final UISettingsService service;

@@ -18,6 +18,7 @@ public class Skill {
     private Long id;
 
     private String name;
+     private String category; // Frontend, Backend, DevOps
     private String level;
     private int percentage;
 
@@ -36,4 +37,9 @@ public class Skill {
 
     public int getPercentage() { return percentage; }
     public void setPercentage(int percentage) { this.percentage = percentage; }
+
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
+
+
 }

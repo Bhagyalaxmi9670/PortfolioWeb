@@ -22,4 +22,7 @@ public class SkillService {
     public List<Skill> getAll(){
         return repository.findAll();
     }
+      public void delete(Long id) {
+        repository.deleteById(id);
+    } 
 }

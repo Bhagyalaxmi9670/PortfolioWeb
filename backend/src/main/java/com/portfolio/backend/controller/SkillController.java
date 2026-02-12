@@ -4,6 +4,10 @@ package com.portfolio.backend.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,18 +17,25 @@ import com.portfolio.backend.service.SkillService;
 
 @RestController
 @RequestMapping("/api/skills")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SkillController {
     private final SkillService service;
 
     public SkillController (SkillService service){
         this.service = service;
     }
-    public  Skill create(@RequestBody Skill skill){
+    @GetMapping
+    public List<Skill> getAll() {
+        return service.getAll();
+    }
+
+    @PostMapping
+    public Skill add(@RequestBody Skill skill) {
         return service.save(skill);
     }
 
-    public  List<Skill> getAll(){
-    return service.getAll();
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 }
