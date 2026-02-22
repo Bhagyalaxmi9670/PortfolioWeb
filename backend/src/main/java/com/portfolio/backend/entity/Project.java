@@ -39,13 +39,13 @@ public class Project {
  private List<Skill> skills;
 
 
- public List<Skill> getSkills() {
+public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+public void setSkills(List<Skill> skills) {
         this.skills = skills;
-    }
+}
 	
  public Long getId() {
 	return id;
